@@ -1,0 +1,1 @@
+{"server":{"ip_addr":"127.0.0.1","port":"9000","max_connection":"9","is_server":"1"},"client":{"ip_addr":"127.0.0.1","port":"9001","reconnect_time":"5000","is_client":"0"},"header":{"type":0,"format":2,"len":4}}

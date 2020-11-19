@@ -1,0 +1,19 @@
+{
+    "server": {
+        "is_server": 1,
+        "ip_addr": "127.0.0.1",
+        "port": 9000,
+        "max_connection": 1
+    },
+    "client": {
+        "is_client": 0,
+        "ip_addr": "127.0.0.1",
+        "port": 9000,
+        "reconnect_time": 5000
+    },
+    "header": {
+        "type": 0,
+        "format": 2,
+        "len": 4
+    }
+}

@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mapping</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./public/bootstrap/css/bootstrap.min.css">
+    <script src="./public/bootstrap/js/jquery.min.js"></script>
+    <script src="./public/bootstrap/js/bootstrap.min.js"></script>
+    <link href="./public/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+    <script src="./public/bootstrap-table/bootstrap-table.min.js"></script>
+</head>
+<style>
+    th {
+        background-color: #F27228;
+        text-align: center;
+        color: white;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    .new-table {
+        display: none;
+    }
+</style>
+
+<body>
+  <nav class="navbar-inverse" style="background-color:#F27228">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" style="color:white" href="./gw_home.html">GATEWAY CONVERSATION</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav ">
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" style="color:white" href="#">
+              General
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="./gw_home.html">Home</a></li>
+              <li><a href="./gw_home.html">Home</a></li>
+            </ul>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" style="color:white" href="#">
+              Communication
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="./gw_cmn_tcp_ip_config.html">TCP/IP</a></li>
+              <li><a href="./gw_cmn_web_sevice_config.html">WebService</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" style="color:white" href="#">
+              Interface
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="./gw_interface_iso_8583.html">Iso 8583</a></li>
+              <li><a href="./gw_interface_iso_20022.html">Iso 20022</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" style="color:white" href="#">
+              Core
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="./gw_core_mapping.html">Mapping</a></li>
+              <li><a href="./gw_core_routing.html">Routing</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" style="color:white" href="#">
+              User
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="./gw_user_man.html">User management</a></li>
+              <li><a href="./gw_user_acc.html">User access</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a style="color:white" href="./gw_user_profile.html"><span class="glyphicon glyphicon-user"></span>
+              User profile</a></li>
+          <li><a style="color:white" href="./gw_home_login.html"><span class="glyphicon glyphicon-log-out"></span>
+              Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+    <div class="col-sm-12" style="border-bottom: 0.5px solid black; padding-bottom: 10px; margin-bottom: 20px;">
+        <h1>
+            Mapping
+        </h1>
+    </div>
+    <div class="col-sm-12">
+        <h4>Select pac:</h4>
+        <select name="" id="" class="form-control" style="width: 100px; margin-bottom: 10px;">
+            <option value=""></option>
+            <option value=" pac008">Pac008</option>
+            <option value="pac002">Pac002</option>
+            <option value="pac004">Pac004</option>
+        </select>
+    </div>
+    <div class="col-sm-12" id="tb">
+        <table class="table table-bordered">
+            <tr>
+                <th>D1</th>
+                <th>
+                    <input list="datalist-state" class="form-control" placeholder="" value="Empty">
+                    <datalist id="datalist-state" placeholder="Pick a state...">
+                        <option value="const"></option>
+                        <option value="F0">F0</option>
+                        <option value="F1">F1</option>
+                        <option value="F2">F2</option>
+                        <option value="F3">F3</option>
+                        <option value="F4">F4</option>
+                        <option value="F5">F5</option>
+                        <option value="F6">F6</option>
+                        <option value="F7">F7</option>
+                        <option value="F8">F8</option>
+                        <option value="F9">F9</option>
+                        <option value="F11">F11</option>
+                        <option value="F12">F12</option>
+                        <option value="F13">F13</option>
+                        <option value="F14">F14</option>
+                        <option value="F15">F15</option>
+                        <option value="F16">F16</option>
+                        <option value="F17">F17</option>
+                        <option value="F18">F18</option>
+                        <option value="F19">F19</option>
+                        <option value="F20">F20</option>
+                        <option value="F21">F21</option>
+                        <option value="F22">F22</option>
+                        <option value="F23">F23</option>
+                        <option value="F24">F24</option>
+                        <option value="F25">F25</option>
+                        <option value="F26">F26</option>
+                        <option value="F27">F27</option>
+                        <option value="F28">F28</option>
+                        <option value="F29">F29</option>
+                        <option value="F30">F30</option>
+                        <option value="F31">F31</option>
+                        <option value="F32">F32</option>
+                        <option value="F33">F33</option>
+                        <option value="F34">F34</option>
+                        <option value="F35">F35</option>
+                        <option value="F36">F36</option>
+                        <option value="F37">F37</option>
+                        <option value="F38">F38</option>
+                        <option value="F39">F39</option>
+                        <option value="F40">F40</option>
+                        <option value="F41">F41</option>
+                        <option value="F42">F42</option>
+                        <option value="F43">F43</option>
+                        <option value="F44">F44</option>
+                        <option value="F45">F45</option>
+                        <option value="F46">F46</option>
+                        <option value="F47">F47</option>
+                        <option value="F48">F48</option>
+                        <option value="F49">F49</option>
+                        <option value="F50">F50</option>
+                        <option value="F51">F51</option>
+                        <option value="F52">F52</option>
+                        <option value="F53">F53</option>
+                        <option value="F54">F54</option>
+                        <option value="F55">F55</option>
+                        <option value="F56">F56</option>
+                        <option value="F57">F57</option>
+                        <option value="F58">F58</option>
+                        <option value="F59">F59</option>
+                        <option value="F60">F60</option>
+                        <option value="F61">F61</option>
+                        <option value="F62">F62</option>
+                        <option value="F63">F63</option>
+                        <option value="F64">F64</option>
+                        <option value="F65">F65</option>
+                        <option value="F66">F66</option>
+                        <option value="F67">F67</option>
+                        <option value="F68">F68</option>
+                        <option value="F69">F69</option>
+                        <option value="F70">F70</option>
+                        <option value="F71">F71</option>
+                        <option value="F72">F72</option>
+                        <option value="F73">F73</option>
+                        <option value="F74">F74</option>
+                        <option value="F75">F75</option>
+                        <option value="F76">F76</option>
+                        <option value="F77">F77</option>
+                        <option value="F78">F78</option>
+                        <option value="F79">F79</option>
+                        <option value="F80">F80</option>
+                        <option value="F81">F81</option>
+                        <option value="F82">F82</option>
+                        <option value="F83">F83</option>
+                        <option value="F84">F84</option>
+                        <option value="F85">F85</option>
+                        <option value="F86">F86</option>
+                        <option value="F87">F87</option>
+                        <option value="F88">F88</option>
+                        <option value="F89">F89</option>
+                        <option value="F90">F90</option>
+                        <option value="F91">F91</option>
+                        <option value="F92">F92</option>
+                        <option value="F93">F93</option>
+                        <option value="F94">F94</option>
+                        <option value="F95">F95</option>
+                        <option value="F96">F96</option>
+                        <option value="F97">F97</option>
+                        <option value="F98">F98</option>
+                        <option value="F99">F99</option>
+                        <option value="F100">F100</option>
+                        <option value="F101">F101</option>
+                        <option value="F102">F102</option>
+                        <option value="F103">F103</option>
+                        <option value="F104">F104</option>
+                        <option value="F105">F105</option>
+                        <option value="F106">F106</option>
+                        <option value="F107">F107</option>
+                        <option value="F108">F108</option>
+                        <option value="F109">F109</option>
+                        <option value="F110">F110</option>
+                        <option value="F111">F111</option>
+                        <option value="F112">F112</option>
+                        <option value="F113">F113</option>
+                        <option value="F114">F114</option>
+                        <option value="F115">F115</option>
+                        <option value="F116">F116</option>
+                        <option value="F117">F117</option>
+                        <option value="F118">F118</option>
+                        <option value="F119">F119</option>
+                        <option value="F120">F120</option>
+                        <option value="F121">F121</option>
+                        <option value="F122">F122</option>
+                        <option value="F123">F123</option>
+                        <option value="F124">F124</option>
+                        <option value="F125">F125</option>
+                        <option value="F126">F126</option>
+                        <option value="F127">F127</option>
+                        <option value="F128">F128</option>
+                    </datalist>
+                    </th>
+                    <th>
+                    <input list="datalist-state" class="form-control" placeholder="" value="Empty">
+                    <datalist id="datalist-state" placeholder="Pick a state...">
+                        <option value="const"></option>
+                        <option value="F0">F0</option>
+                        <option value="F1">F1</option>
+                        <option value="F2">F2</option>
+                        <option value="F3">F3</option>
+                        <option value="F4">F4</option>
+                        <option value="F5">F5</option>
+                        <option value="F6">F6</option>
+                        <option value="F7">F7</option>
+                        <option value="F8">F8</option>
+                        <option value="F9">F9</option>
+                        <option value="F11">F11</option>
+                        <option value="F12">F12</option>
+                        <option value="F13">F13</option>
+                        <option value="F14">F14</option>
+                        <option value="F15">F15</option>
+                        <option value="F16">F16</option>
+                        <option value="F17">F17</option>
+                        <option value="F18">F18</option>
+                        <option value="F19">F19</option>
+                        <option value="F20">F20</option>
+                        <option value="F21">F21</option>
+                        <option value="F22">F22</option>
+                        <option value="F23">F23</option>
+                        <option value="F24">F24</option>
+                        <option value="F25">F25</option>
+                        <option value="F26">F26</option>
+                        <option value="F27">F27</option>
+                        <option value="F28">F28</option>
+                        <option value="F29">F29</option>
+                        <option value="F30">F30</option>
+                        <option value="F31">F31</option>
+                        <option value="F32">F32</option>
+                        <option value="F33">F33</option>
+                        <option value="F34">F34</option>
+                        <option value="F35">F35</option>
+                        <option value="F36">F36</option>
+                        <option value="F37">F37</option>
+                        <option value="F38">F38</option>
+                        <option value="F39">F39</option>
+                        <option value="F40">F40</option>
+                        <option value="F41">F41</option>
+                        <option value="F42">F42</option>
+                        <option value="F43">F43</option>
+                        <option value="F44">F44</option>
+                        <option value="F45">F45</option>
+                        <option value="F46">F46</option>
+                        <option value="F47">F47</option>
+                        <option value="F48">F48</option>
+                        <option value="F49">F49</option>
+                        <option value="F50">F50</option>
+                        <option value="F51">F51</option>
+                        <option value="F52">F52</option>
+                        <option value="F53">F53</option>
+                        <option value="F54">F54</option>
+                        <option value="F55">F55</option>
+                        <option value="F56">F56</option>
+                        <option value="F57">F57</option>
+                        <option value="F58">F58</option>
+                        <option value="F59">F59</option>
+                        <option value="F60">F60</option>
+                        <option value="F61">F61</option>
+                        <option value="F62">F62</option>
+                        <option value="F63">F63</option>
+                        <option value="F64">F64</option>
+                        <option value="F65">F65</option>
+                        <option value="F66">F66</option>
+                        <option value="F67">F67</option>
+                        <option value="F68">F68</option>
+                        <option value="F69">F69</option>
+                        <option value="F70">F70</option>
+                        <option value="F71">F71</option>
+                        <option value="F72">F72</option>
+                        <option value="F73">F73</option>
+                        <option value="F74">F74</option>
+                        <option value="F75">F75</option>
+                        <option value="F76">F76</option>
+                        <option value="F77">F77</option>
+                        <option value="F78">F78</option>
+                        <option value="F79">F79</option>
+                        <option value="F80">F80</option>
+                        <option value="F81">F81</option>
+                        <option value="F82">F82</option>
+                        <option value="F83">F83</option>
+                        <option value="F84">F84</option>
+                        <option value="F85">F85</option>
+                        <option value="F86">F86</option>
+                        <option value="F87">F87</option>
+                        <option value="F88">F88</option>
+                        <option value="F89">F89</option>
+                        <option value="F90">F90</option>
+                        <option value="F91">F91</option>
+                        <option value="F92">F92</option>
+                        <option value="F93">F93</option>
+                        <option value="F94">F94</option>
+                        <option value="F95">F95</option>
+                        <option value="F96">F96</option>
+                        <option value="F97">F97</option>
+                        <option value="F98">F98</option>
+                        <option value="F99">F99</option>
+                        <option value="F100">F100</option>
+                        <option value="F101">F101</option>
+                        <option value="F102">F102</option>
+                        <option value="F103">F103</option>
+                        <option value="F104">F104</option>
+                        <option value="F105">F105</option>
+                        <option value="F106">F106</option>
+                        <option value="F107">F107</option>
+                        <option value="F108">F108</option>
+                        <option value="F109">F109</option>
+                        <option value="F110">F110</option>
+                        <option value="F111">F111</option>
+                        <option value="F112">F112</option>
+                        <option value="F113">F113</option>
+                        <option value="F114">F114</option>
+                        <option value="F115">F115</option>
+                        <option value="F116">F116</option>
+                        <option value="F117">F117</option>
+                        <option value="F118">F118</option>
+                        <option value="F119">F119</option>
+                        <option value="F120">F120</option>
+                        <option value="F121">F121</option>
+                        <option value="F122">F122</option>
+                        <option value="F123">F123</option>
+                        <option value="F124">F124</option>
+                        <option value="F125">F125</option>
+                        <option value="F126">F126</option>
+                        <option value="F127">F127</option>
+                        <option value="F128">F128</option>
+                    </datalist>
+                    </th>
+                    <th>
+                    <input list="datalist-state" class="form-control" placeholder="" value="Empty">
+                    <datalist id="datalist-state" placeholder="Pick a state...">
+                        <option value="const"></option>
+                        <option value="F0">F0</option>
+                        <option value="F1">F1</option>
+                        <option value="F2">F2</option>
+                        <option value="F3">F3</option>
+                        <option value="F4">F4</option>
+                        <option value="F5">F5</option>
+                        <option value="F6">F6</option>
+                        <option value="F7">F7</option>
+                        <option value="F8">F8</option>
+                        <option value="F9">F9</option>
+                        <option value="F11">F11</option>
+                        <option value="F12">F12</option>
+                        <option value="F13">F13</option>
+                        <option value="F14">F14</option>
+                        <option value="F15">F15</option>
+                        <option value="F16">F16</option>
+                        <option value="F17">F17</option>
+                        <option value="F18">F18</option>
+                        <option value="F19">F19</option>
+                        <option value="F20">F20</option>
+                        <option value="F21">F21</option>
+                        <option value="F22">F22</option>
+                        <option value="F23">F23</option>
+                        <option value="F24">F24</option>
+                        <option value="F25">F25</option>
+                        <option value="F26">F26</option>
+                        <option value="F27">F27</option>
+                        <option value="F28">F28</option>
+                        <option value="F29">F29</option>
+                        <option value="F30">F30</option>
+                        <option value="F31">F31</option>
+                        <option value="F32">F32</option>
+                        <option value="F33">F33</option>
+                        <option value="F34">F34</option>
+                        <option value="F35">F35</option>
+                        <option value="F36">F36</option>
+                        <option value="F37">F37</option>
+                        <option value="F38">F38</option>
+                        <option value="F39">F39</option>
+                        <option value="F40">F40</option>
+                        <option value="F41">F41</option>
+                        <option value="F42">F42</option>
+                        <option value="F43">F43</option>
+                        <option value="F44">F44</option>
+                        <option value="F45">F45</option>
+                        <option value="F46">F46</option>
+                        <option value="F47">F47</option>
+                        <option value="F48">F48</option>
+                        <option value="F49">F49</option>
+                        <option value="F50">F50</option>
+                        <option value="F51">F51</option>
+                        <option value="F52">F52</option>
+                        <option value="F53">F53</option>
+                        <option value="F54">F54</option>
+                        <option value="F55">F55</option>
+                        <option value="F56">F56</option>
+                        <option value="F57">F57</option>
+                        <option value="F58">F58</option>
+                        <option value="F59">F59</option>
+                        <option value="F60">F60</option>
+                        <option value="F61">F61</option>
+                        <option value="F62">F62</option>
+                        <option value="F63">F63</option>
+                        <option value="F64">F64</option>
+                        <option value="F65">F65</option>
+                        <option value="F66">F66</option>
+                        <option value="F67">F67</option>
+                        <option value="F68">F68</option>
+                        <option value="F69">F69</option>
+                        <option value="F70">F70</option>
+                        <option value="F71">F71</option>
+                        <option value="F72">F72</option>
+                        <option value="F73">F73</option>
+                        <option value="F74">F74</option>
+                        <option value="F75">F75</option>
+                        <option value="F76">F76</option>
+                        <option value="F77">F77</option>
+                        <option value="F78">F78</option>
+                        <option value="F79">F79</option>
+                        <option value="F80">F80</option>
+                        <option value="F81">F81</option>
+                        <option value="F82">F82</option>
+                        <option value="F83">F83</option>
+                        <option value="F84">F84</option>
+                        <option value="F85">F85</option>
+                        <option value="F86">F86</option>
+                        <option value="F87">F87</option>
+                        <option value="F88">F88</option>
+                        <option value="F89">F89</option>
+                        <option value="F90">F90</option>
+                        <option value="F91">F91</option>
+                        <option value="F92">F92</option>
+                        <option value="F93">F93</option>
+                        <option value="F94">F94</option>
+                        <option value="F95">F95</option>
+                        <option value="F96">F96</option>
+                        <option value="F97">F97</option>
+                        <option value="F98">F98</option>
+                        <option value="F99">F99</option>
+                        <option value="F100">F100</option>
+                        <option value="F101">F101</option>
+                        <option value="F102">F102</option>
+                        <option value="F103">F103</option>
+                        <option value="F104">F104</option>
+                        <option value="F105">F105</option>
+                        <option value="F106">F106</option>
+                        <option value="F107">F107</option>
+                        <option value="F108">F108</option>
+                        <option value="F109">F109</option>
+                        <option value="F110">F110</option>
+                        <option value="F111">F111</option>
+                        <option value="F112">F112</option>
+                        <option value="F113">F113</option>
+                        <option value="F114">F114</option>
+                        <option value="F115">F115</option>
+                        <option value="F116">F116</option>
+                        <option value="F117">F117</option>
+                        <option value="F118">F118</option>
+                        <option value="F119">F119</option>
+                        <option value="F120">F120</option>
+                        <option value="F121">F121</option>
+                        <option value="F122">F122</option>
+                        <option value="F123">F123</option>
+                        <option value="F124">F124</option>
+                        <option value="F125">F125</option>
+                        <option value="F126">F126</option>
+                        <option value="F127">F127</option>
+                        <option value="F128">F128</option>
+                    </datalist>
+                    </th>
+                    <th>
+                    <input list="datalist-state" class="form-control" placeholder="" value="Empty">
+                    <datalist id="datalist-state" placeholder="Pick a state...">
+                        <option value="const"></option>
+                        <option value="F0">F0</option>
+                        <option value="F1">F1</option>
+                        <option value="F2">F2</option>
+                        <option value="F3">F3</option>
+                        <option value="F4">F4</option>
+                        <option value="F5">F5</option>
+                        <option value="F6">F6</option>
+                        <option value="F7">F7</option>
+                        <option value="F8">F8</option>
+                        <option value="F9">F9</option>
+                        <option value="F11">F11</option>
+                        <option value="F12">F12</option>
+                        <option value="F13">F13</option>
+                        <option value="F14">F14</option>
+                        <option value="F15">F15</option>
+                        <option value="F16">F16</option>
+                        <option value="F17">F17</option>
+                        <option value="F18">F18</option>
+                        <option value="F19">F19</option>
+                        <option value="F20">F20</option>
+                        <option value="F21">F21</option>
+                        <option value="F22">F22</option>
+                        <option value="F23">F23</option>
+                        <option value="F24">F24</option>
+                        <option value="F25">F25</option>
+                        <option value="F26">F26</option>
+                        <option value="F27">F27</option>
+                        <option value="F28">F28</option>
+                        <option value="F29">F29</option>
+                        <option value="F30">F30</option>
+                        <option value="F31">F31</option>
+                        <option value="F32">F32</option>
+                        <option value="F33">F33</option>
+                        <option value="F34">F34</option>
+                        <option value="F35">F35</option>
+                        <option value="F36">F36</option>
+                        <option value="F37">F37</option>
+                        <option value="F38">F38</option>
+                        <option value="F39">F39</option>
+                        <option value="F40">F40</option>
+                        <option value="F41">F41</option>
+                        <option value="F42">F42</option>
+                        <option value="F43">F43</option>
+                        <option value="F44">F44</option>
+                        <option value="F45">F45</option>
+                        <option value="F46">F46</option>
+                        <option value="F47">F47</option>
+                        <option value="F48">F48</option>
+                        <option value="F49">F49</option>
+                        <option value="F50">F50</option>
+                        <option value="F51">F51</option>
+                        <option value="F52">F52</option>
+                        <option value="F53">F53</option>
+                        <option value="F54">F54</option>
+                        <option value="F55">F55</option>
+                        <option value="F56">F56</option>
+                        <option value="F57">F57</option>
+                        <option value="F58">F58</option>
+                        <option value="F59">F59</option>
+                        <option value="F60">F60</option>
+                        <option value="F61">F61</option>
+                        <option value="F62">F62</option>
+                        <option value="F63">F63</option>
+                        <option value="F64">F64</option>
+                        <option value="F65">F65</option>
+                        <option value="F66">F66</option>
+                        <option value="F67">F67</option>
+                        <option value="F68">F68</option>
+                        <option value="F69">F69</option>
+                        <option value="F70">F70</option>
+                        <option value="F71">F71</option>
+                        <option value="F72">F72</option>
+                        <option value="F73">F73</option>
+                        <option value="F74">F74</option>
+                        <option value="F75">F75</option>
+                        <option value="F76">F76</option>
+                        <option value="F77">F77</option>
+                        <option value="F78">F78</option>
+                        <option value="F79">F79</option>
+                        <option value="F80">F80</option>
+                        <option value="F81">F81</option>
+                        <option value="F82">F82</option>
+                        <option value="F83">F83</option>
+                        <option value="F84">F84</option>
+                        <option value="F85">F85</option>
+                        <option value="F86">F86</option>
+                        <option value="F87">F87</option>
+                        <option value="F88">F88</option>
+                        <option value="F89">F89</option>
+                        <option value="F90">F90</option>
+                        <option value="F91">F91</option>
+                        <option value="F92">F92</option>
+                        <option value="F93">F93</option>
+                        <option value="F94">F94</option>
+                        <option value="F95">F95</option>
+                        <option value="F96">F96</option>
+                        <option value="F97">F97</option>
+                        <option value="F98">F98</option>
+                        <option value="F99">F99</option>
+                        <option value="F100">F100</option>
+                        <option value="F101">F101</option>
+                        <option value="F102">F102</option>
+                        <option value="F103">F103</option>
+                        <option value="F104">F104</option>
+                        <option value="F105">F105</option>
+                        <option value="F106">F106</option>
+                        <option value="F107">F107</option>
+                        <option value="F108">F108</option>
+                        <option value="F109">F109</option>
+                        <option value="F110">F110</option>
+                        <option value="F111">F111</option>
+                        <option value="F112">F112</option>
+                        <option value="F113">F113</option>
+                        <option value="F114">F114</option>
+                        <option value="F115">F115</option>
+                        <option value="F116">F116</option>
+                        <option value="F117">F117</option>
+                        <option value="F118">F118</option>
+                        <option value="F119">F119</option>
+                        <option value="F120">F120</option>
+                        <option value="F121">F121</option>
+                        <option value="F122">F122</option>
+                        <option value="F123">F123</option>
+                        <option value="F124">F124</option>
+                        <option value="F125">F125</option>
+                        <option value="F126">F126</option>
+                        <option value="F127">F127</option>
+                        <option value="F128">F128</option>
+                    </datalist>
+                    </th>
+                    <th>
+                    <input list="datalist-state" class="form-control" placeholder="" value="Empty">
+                    <datalist id="datalist-state" placeholder="Pick a state...">
+                        <option value="const"></option>
+                        <option value="F0">F0</option>
+                        <option value="F1">F1</option>
+                        <option value="F2">F2</option>
+                        <option value="F3">F3</option>
+                        <option value="F4">F4</option>
+                        <option value="F5">F5</option>
+                        <option value="F6">F6</option>
+                        <option value="F7">F7</option>
+                        <option value="F8">F8</option>
+                        <option value="F9">F9</option>
+                        <option value="F11">F11</option>
+                        <option value="F12">F12</option>
+                        <option value="F13">F13</option>
+                        <option value="F14">F14</option>
+                        <option value="F15">F15</option>
+                        <option value="F16">F16</option>
+                        <option value="F17">F17</option>
+                        <option value="F18">F18</option>
+                        <option value="F19">F19</option>
+                        <option value="F20">F20</option>
+                        <option value="F21">F21</option>
+                        <option value="F22">F22</option>
+                        <option value="F23">F23</option>
+                        <option value="F24">F24</option>
+                        <option value="F25">F25</option>
+                        <option value="F26">F26</option>
+                        <option value="F27">F27</option>
+                        <option value="F28">F28</option>
+                        <option value="F29">F29</option>
+                        <option value="F30">F30</option>
+                        <option value="F31">F31</option>
+                        <option value="F32">F32</option>
+                        <option value="F33">F33</option>
+                        <option value="F34">F34</option>
+                        <option value="F35">F35</option>
+                        <option value="F36">F36</option>
+                        <option value="F37">F37</option>
+                        <option value="F38">F38</option>
+                        <option value="F39">F39</option>
+                        <option value="F40">F40</option>
+                        <option value="F41">F41</option>
+                        <option value="F42">F42</option>
+                        <option value="F43">F43</option>
+                        <option value="F44">F44</option>
+                        <option value="F45">F45</option>
+                        <option value="F46">F46</option>
+                        <option value="F47">F47</option>
+                        <option value="F48">F48</option>
+                        <option value="F49">F49</option>
+                        <option value="F50">F50</option>
+                        <option value="F51">F51</option>
+                        <option value="F52">F52</option>
+                        <option value="F53">F53</option>
+                        <option value="F54">F54</option>
+                        <option value="F55">F55</option>
+                        <option value="F56">F56</option>
+                        <option value="F57">F57</option>
+                        <option value="F58">F58</option>
+                        <option value="F59">F59</option>
+                        <option value="F60">F60</option>
+                        <option value="F61">F61</option>
+                        <option value="F62">F62</option>
+                        <option value="F63">F63</option>
+                        <option value="F64">F64</option>
+                        <option value="F65">F65</option>
+                        <option value="F66">F66</option>
+                        <option value="F67">F67</option>
+                        <option value="F68">F68</option>
+                        <option value="F69">F69</option>
+                        <option value="F70">F70</option>
+                        <option value="F71">F71</option>
+                        <option value="F72">F72</option>
+                        <option value="F73">F73</option>
+                        <option value="F74">F74</option>
+                        <option value="F75">F75</option>
+                        <option value="F76">F76</option>
+                        <option value="F77">F77</option>
+                        <option value="F78">F78</option>
+                        <option value="F79">F79</option>
+                        <option value="F80">F80</option>
+                        <option value="F81">F81</option>
+                        <option value="F82">F82</option>
+                        <option value="F83">F83</option>
+                        <option value="F84">F84</option>
+                        <option value="F85">F85</option>
+                        <option value="F86">F86</option>
+                        <option value="F87">F87</option>
+                        <option value="F88">F88</option>
+                        <option value="F89">F89</option>
+                        <option value="F90">F90</option>
+                        <option value="F91">F91</option>
+                        <option value="F92">F92</option>
+                        <option value="F93">F93</option>
+                        <option value="F94">F94</option>
+                        <option value="F95">F95</option>
+                        <option value="F96">F96</option>
+                        <option value="F97">F97</option>
+                        <option value="F98">F98</option>
+                        <option value="F99">F99</option>
+                        <option value="F100">F100</option>
+                        <option value="F101">F101</option>
+                        <option value="F102">F102</option>
+                        <option value="F103">F103</option>
+                        <option value="F104">F104</option>
+                        <option value="F105">F105</option>
+                        <option value="F106">F106</option>
+                        <option value="F107">F107</option>
+                        <option value="F108">F108</option>
+                        <option value="F109">F109</option>
+                        <option value="F110">F110</option>
+                        <option value="F111">F111</option>
+                        <option value="F112">F112</option>
+                        <option value="F113">F113</option>
+                        <option value="F114">F114</option>
+                        <option value="F115">F115</option>
+                        <option value="F116">F116</option>
+                        <option value="F117">F117</option>
+                        <option value="F118">F118</option>
+                        <option value="F119">F119</option>
+                        <option value="F120">F120</option>
+                        <option value="F121">F121</option>
+                        <option value="F122">F122</option>
+                        <option value="F123">F123</option>
+                        <option value="F124">F124</option>
+                        <option value="F125">F125</option>
+                        <option value="F126">F126</option>
+                        <option value="F127">F127</option>
+                        <option value="F128">F128</option>
+                    </datalist>
+                    </th>
+                    <th>
+                    <input list="datalist-state" class="form-control" placeholder="" value="Empty">
+                    <datalist id="datalist-state" placeholder="Pick a state...">
+                        <option value="const"></option>
+                        <option value="F0">F0</option>
+                        <option value="F1">F1</option>
+                        <option value="F2">F2</option>
+                        <option value="F3">F3</option>
+                        <option value="F4">F4</option>
+                        <option value="F5">F5</option>
+                        <option value="F6">F6</option>
+                        <option value="F7">F7</option>
+                        <option value="F8">F8</option>
+                        <option value="F9">F9</option>
+                        <option value="F11">F11</option>
+                        <option value="F12">F12</option>
+                        <option value="F13">F13</option>
+                        <option value="F14">F14</option>
+                        <option value="F15">F15</option>
+                        <option value="F16">F16</option>
+                        <option value="F17">F17</option>
+                        <option value="F18">F18</option>
+                        <option value="F19">F19</option>
+                        <option value="F20">F20</option>
+                        <option value="F21">F21</option>
+                        <option value="F22">F22</option>
+                        <option value="F23">F23</option>
+                        <option value="F24">F24</option>
+                        <option value="F25">F25</option>
+                        <option value="F26">F26</option>
+                        <option value="F27">F27</option>
+                        <option value="F28">F28</option>
+                        <option value="F29">F29</option>
+                        <option value="F30">F30</option>
+                        <option value="F31">F31</option>
+                        <option value="F32">F32</option>
+                        <option value="F33">F33</option>
+                        <option value="F34">F34</option>
+                        <option value="F35">F35</option>
+                        <option value="F36">F36</option>
+                        <option value="F37">F37</option>
+                        <option value="F38">F38</option>
+                        <option value="F39">F39</option>
+                        <option value="F40">F40</option>
+                        <option value="F41">F41</option>
+                        <option value="F42">F42</option>
+                        <option value="F43">F43</option>
+                        <option value="F44">F44</option>
+                        <option value="F45">F45</option>
+                        <option value="F46">F46</option>
+                        <option value="F47">F47</option>
+                        <option value="F48">F48</option>
+                        <option value="F49">F49</option>
+                        <option value="F50">F50</option>
+                        <option value="F51">F51</option>
+                        <option value="F52">F52</option>
+                        <option value="F53">F53</option>
+                        <option value="F54">F54</option>
+                        <option value="F55">F55</option>
+                        <option value="F56">F56</option>
+                        <option value="F57">F57</option>
+                        <option value="F58">F58</option>
+                        <option value="F59">F59</option>
+                        <option value="F60">F60</option>
+                        <option value="F61">F61</option>
+                        <option value="F62">F62</option>
+                        <option value="F63">F63</option>
+                        <option value="F64">F64</option>
+                        <option value="F65">F65</option>
+                        <option value="F66">F66</option>
+                        <option value="F67">F67</option>
+                        <option value="F68">F68</option>
+                        <option value="F69">F69</option>
+                        <option value="F70">F70</option>
+                        <option value="F71">F71</option>
+                        <option value="F72">F72</option>
+                        <option value="F73">F73</option>
+                        <option value="F74">F74</option>
+                        <option value="F75">F75</option>
+                        <option value="F76">F76</option>
+                        <option value="F77">F77</option>
+                        <option value="F78">F78</option>
+                        <option value="F79">F79</option>
+                        <option value="F80">F80</option>
+                        <option value="F81">F81</option>
+                        <option value="F82">F82</option>
+                        <option value="F83">F83</option>
+                        <option value="F84">F84</option>
+                        <option value="F85">F85</option>
+                        <option value="F86">F86</option>
+                        <option value="F87">F87</option>
+                        <option value="F88">F88</option>
+                        <option value="F89">F89</option>
+                        <option value="F90">F90</option>
+                        <option value="F91">F91</option>
+                        <option value="F92">F92</option>
+                        <option value="F93">F93</option>
+                        <option value="F94">F94</option>
+                        <option value="F95">F95</option>
+                        <option value="F96">F96</option>
+                        <option value="F97">F97</option>
+                        <option value="F98">F98</option>
+                        <option value="F99">F99</option>
+                        <option value="F100">F100</option>
+                        <option value="F101">F101</option>
+                        <option value="F102">F102</option>
+                        <option value="F103">F103</option>
+                        <option value="F104">F104</option>
+                        <option value="F105">F105</option>
+                        <option value="F106">F106</option>
+                        <option value="F107">F107</option>
+                        <option value="F108">F108</option>
+                        <option value="F109">F109</option>
+                        <option value="F110">F110</option>
+                        <option value="F111">F111</option>
+                        <option value="F112">F112</option>
+                        <option value="F113">F113</option>
+                        <option value="F114">F114</option>
+                        <option value="F115">F115</option>
+                        <option value="F116">F116</option>
+                        <option value="F117">F117</option>
+                        <option value="F118">F118</option>
+                        <option value="F119">F119</option>
+                        <option value="F120">F120</option>
+                        <option value="F121">F121</option>
+                        <option value="F122">F122</option>
+                        <option value="F123">F123</option>
+                        <option value="F124">F124</option>
+                        <option value="F125">F125</option>
+                        <option value="F126">F126</option>
+                        <option value="F127">F127</option>
+                        <option value="F128">F128</option>
+                    </datalist>
+                    </th>
+                    <th>
+                    <input list="datalist-state" class="form-control" placeholder="" value="Empty">
+                    <datalist id="datalist-state" placeholder="Pick a state...">
+                        <option value="const"></option>
+                        <option value="F0">F0</option>
+                        <option value="F1">F1</option>
+                        <option value="F2">F2</option>
+                        <option value="F3">F3</option>
+                        <option value="F4">F4</option>
+                        <option value="F5">F5</option>
+                        <option value="F6">F6</option>
+                        <option value="F7">F7</option>
+                        <option value="F8">F8</option>
+                        <option value="F9">F9</option>
+                        <option value="F11">F11</option>
+                        <option value="F12">F12</option>
+                        <option value="F13">F13</option>
+                        <option value="F14">F14</option>
+                        <option value="F15">F15</option>
+                        <option value="F16">F16</option>
+                        <option value="F17">F17</option>
+                        <option value="F18">F18</option>
+                        <option value="F19">F19</option>
+                        <option value="F20">F20</option>
+                        <option value="F21">F21</option>
+                        <option value="F22">F22</option>
+                        <option value="F23">F23</option>
+                        <option value="F24">F24</option>
+                        <option value="F25">F25</option>
+                        <option value="F26">F26</option>
+                        <option value="F27">F27</option>
+                        <option value="F28">F28</option>
+                        <option value="F29">F29</option>
+                        <option value="F30">F30</option>
+                        <option value="F31">F31</option>
+                        <option value="F32">F32</option>
+                        <option value="F33">F33</option>
+                        <option value="F34">F34</option>
+                        <option value="F35">F35</option>
+                        <option value="F36">F36</option>
+                        <option value="F37">F37</option>
+                        <option value="F38">F38</option>
+                        <option value="F39">F39</option>
+                        <option value="F40">F40</option>
+                        <option value="F41">F41</option>
+                        <option value="F42">F42</option>
+                        <option value="F43">F43</option>
+                        <option value="F44">F44</option>
+                        <option value="F45">F45</option>
+                        <option value="F46">F46</option>
+                        <option value="F47">F47</option>
+                        <option value="F48">F48</option>
+                        <option value="F49">F49</option>
+                        <option value="F50">F50</option>
+                        <option value="F51">F51</option>
+                        <option value="F52">F52</option>
+                        <option value="F53">F53</option>
+                        <option value="F54">F54</option>
+                        <option value="F55">F55</option>
+                        <option value="F56">F56</option>
+                        <option value="F57">F57</option>
+                        <option value="F58">F58</option>
+                        <option value="F59">F59</option>
+                        <option value="F60">F60</option>
+                        <option value="F61">F61</option>
+                        <option value="F62">F62</option>
+                        <option value="F63">F63</option>
+                        <option value="F64">F64</option>
+                        <option value="F65">F65</option>
+                        <option value="F66">F66</option>
+                        <option value="F67">F67</option>
+                        <option value="F68">F68</option>
+                        <option value="F69">F69</option>
+                        <option value="F70">F70</option>
+                        <option value="F71">F71</option>
+                        <option value="F72">F72</option>
+                        <option value="F73">F73</option>
+                        <option value="F74">F74</option>
+                        <option value="F75">F75</option>
+                        <option value="F76">F76</option>
+                        <option value="F77">F77</option>
+                        <option value="F78">F78</option>
+                        <option value="F79">F79</option>
+                        <option value="F80">F80</option>
+                        <option value="F81">F81</option>
+                        <option value="F82">F82</option>
+                        <option value="F83">F83</option>
+                        <option value="F84">F84</option>
+                        <option value="F85">F85</option>
+                        <option value="F86">F86</option>
+                        <option value="F87">F87</option>
+                        <option value="F88">F88</option>
+                        <option value="F89">F89</option>
+                        <option value="F90">F90</option>
+                        <option value="F91">F91</option>
+                        <option value="F92">F92</option>
+                        <option value="F93">F93</option>
+                        <option value="F94">F94</option>
+                        <option value="F95">F95</option>
+                        <option value="F96">F96</option>
+                        <option value="F97">F97</option>
+                        <option value="F98">F98</option>
+                        <option value="F99">F99</option>
+                        <option value="F100">F100</option>
+                        <option value="F101">F101</option>
+                        <option value="F102">F102</option>
+                        <option value="F103">F103</option>
+                        <option value="F104">F104</option>
+                        <option value="F105">F105</option>
+                        <option value="F106">F106</option>
+                        <option value="F107">F107</option>
+                        <option value="F108">F108</option>
+                        <option value="F109">F109</option>
+                        <option value="F110">F110</option>
+                        <option value="F111">F111</option>
+                        <option value="F112">F112</option>
+                        <option value="F113">F113</option>
+                        <option value="F114">F114</option>
+                        <option value="F115">F115</option>
+                        <option value="F116">F116</option>
+                        <option value="F117">F117</option>
+                        <option value="F118">F118</option>
+                        <option value="F119">F119</option>
+                        <option value="F120">F120</option>
+                        <option value="F121">F121</option>
+                        <option value="F122">F122</option>
+                        <option value="F123">F123</option>
+                        <option value="F124">F124</option>
+                        <option value="F125">F125</option>
+                        <option value="F126">F126</option>
+                        <option value="F127">F127</option>
+                        <option value="F128">F128</option>
+                    </datalist>
+                    </th>
+                    <th>
+                    <input list="datalist-state" class="form-control" placeholder="" value="Empty">
+                    <datalist id="datalist-state" placeholder="Pick a state...">
+                        <option value="const"></option>
+                        <option value="F0">F0</option>
+                        <option value="F1">F1</option>
+                        <option value="F2">F2</option>
+                        <option value="F3">F3</option>
+                        <option value="F4">F4</option>
+                        <option value="F5">F5</option>
+                        <option value="F6">F6</option>
+                        <option value="F7">F7</option>
+                        <option value="F8">F8</option>
+                        <option value="F9">F9</option>
+                        <option value="F11">F11</option>
+                        <option value="F12">F12</option>
+                        <option value="F13">F13</option>
+                        <option value="F14">F14</option>
+                        <option value="F15">F15</option>
+                        <option value="F16">F16</option>
+                        <option value="F17">F17</option>
+                        <option value="F18">F18</option>
+                        <option value="F19">F19</option>
+                        <option value="F20">F20</option>
+                        <option value="F21">F21</option>
+                        <option value="F22">F22</option>
+                        <option value="F23">F23</option>
+                        <option value="F24">F24</option>
+                        <option value="F25">F25</option>
+                        <option value="F26">F26</option>
+                        <option value="F27">F27</option>
+                        <option value="F28">F28</option>
+                        <option value="F29">F29</option>
+                        <option value="F30">F30</option>
+                        <option value="F31">F31</option>
+                        <option value="F32">F32</option>
+                        <option value="F33">F33</option>
+                        <option value="F34">F34</option>
+                        <option value="F35">F35</option>
+                        <option value="F36">F36</option>
+                        <option value="F37">F37</option>
+                        <option value="F38">F38</option>
+                        <option value="F39">F39</option>
+                        <option value="F40">F40</option>
+                        <option value="F41">F41</option>
+                        <option value="F42">F42</option>
+                        <option value="F43">F43</option>
+                        <option value="F44">F44</option>
+                        <option value="F45">F45</option>
+                        <option value="F46">F46</option>
+                        <option value="F47">F47</option>
+                        <option value="F48">F48</option>
+                        <option value="F49">F49</option>
+                        <option value="F50">F50</option>
+                        <option value="F51">F51</option>
+                        <option value="F52">F52</option>
+                        <option value="F53">F53</option>
+                        <option value="F54">F54</option>
+                        <option value="F55">F55</option>
+                        <option value="F56">F56</option>
+                        <option value="F57">F57</option>
+                        <option value="F58">F58</option>
+                        <option value="F59">F59</option>
+                        <option value="F60">F60</option>
+                        <option value="F61">F61</option>
+                        <option value="F62">F62</option>
+                        <option value="F63">F63</option>
+                        <option value="F64">F64</option>
+                        <option value="F65">F65</option>
+                        <option value="F66">F66</option>
+                        <option value="F67">F67</option>
+                        <option value="F68">F68</option>
+                        <option value="F69">F69</option>
+                        <option value="F70">F70</option>
+                        <option value="F71">F71</option>
+                        <option value="F72">F72</option>
+                        <option value="F73">F73</option>
+                        <option value="F74">F74</option>
+                        <option value="F75">F75</option>
+                        <option value="F76">F76</option>
+                        <option value="F77">F77</option>
+                        <option value="F78">F78</option>
+                        <option value="F79">F79</option>
+                        <option value="F80">F80</option>
+                        <option value="F81">F81</option>
+                        <option value="F82">F82</option>
+                        <option value="F83">F83</option>
+                        <option value="F84">F84</option>
+                        <option value="F85">F85</option>
+                        <option value="F86">F86</option>
+                        <option value="F87">F87</option>
+                        <option value="F88">F88</option>
+                        <option value="F89">F89</option>
+                        <option value="F90">F90</option>
+                        <option value="F91">F91</option>
+                        <option value="F92">F92</option>
+                        <option value="F93">F93</option>
+                        <option value="F94">F94</option>
+                        <option value="F95">F95</option>
+                        <option value="F96">F96</option>
+                        <option value="F97">F97</option>
+                        <option value="F98">F98</option>
+                        <option value="F99">F99</option>
+                        <option value="F100">F100</option>
+                        <option value="F101">F101</option>
+                        <option value="F102">F102</option>
+                        <option value="F103">F103</option>
+                        <option value="F104">F104</option>
+                        <option value="F105">F105</option>
+                        <option value="F106">F106</option>
+                        <option value="F107">F107</option>
+                        <option value="F108">F108</option>
+                        <option value="F109">F109</option>
+                        <option value="F110">F110</option>
+                        <option value="F111">F111</option>
+                        <option value="F112">F112</option>
+                        <option value="F113">F113</option>
+                        <option value="F114">F114</option>
+                        <option value="F115">F115</option>
+                        <option value="F116">F116</option>
+                        <option value="F117">F117</option>
+                        <option value="F118">F118</option>
+                        <option value="F119">F119</option>
+                        <option value="F120">F120</option>
+                        <option value="F121">F121</option>
+                        <option value="F122">F122</option>
+                        <option value="F123">F123</option>
+                        <option value="F124">F124</option>
+                        <option value="F125">F125</option>
+                        <option value="F126">F126</option>
+                        <option value="F127">F127</option>
+                        <option value="F128">F128</option>
+                    </datalist>
+                    </th>
+            </tr>
+            <tr>
+                <td><input type="text" class="form-control" name="" id=""></td>
+                <td><input type="text" class="form-control" name="" id=""></td>
+                <td><input type="text" class="form-control" name="" id=""></td>
+                <td><input type="text" class="form-control" name="" id=""></td>
+                <td><input type="text" class="form-control" name="" id=""></td>
+                <td><input type="text" class="form-control" name="" id=""></td>
+                <td><input type="text" class="form-control" name="" id=""></td>
+                <td><input type="text" class="form-control" name="" id=""></td>
+                <td><input type="text" class="form-control" name="" id=""></td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-sm-12">
+        <button class="button" style="margin-bottom:20px; float:right;"><span class="glyphicon glyphicon-plus"></span>
+            Create table</button>
+    </div>
+</body>
+<script>
+    let i = 0;
+    let k = 2;
+    let tb = $("#tb").html();
+    for (let j = 1; j < 16; j++) {
+        $("#tb").append(tb);
+    }
+    for (let j = 1; j < 16; j++) {
+        document.getElementById("tb").getElementsByTagName("table")[j].getElementsByTagName("tr")[0].getElementsByTagName("th")[0].innerHTML = "D" + k ;
+        k++;
+    }
+    $('button').click(() => {
+        if(k > 30){
+            alert("Can not add table");
+        }else{
+            $("#tb").append(tb);
+                document.getElementById("tb").getElementsByTagName("table")[k].getElementsByTagName("tr")[0].getElementsByTagName("th")[0].innerHTML = "D" + k ;
+        k++;
+        }
+    });
+</script>
+
+</html>

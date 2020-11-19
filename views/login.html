@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="./public/bootstrap/css/bootstrap.min.css">
+    <script src="./public/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./public/bootstrap/js/jquery.min.js"></script>
+
+	<style>
+		.bg {
+			/* The image used */
+			background-image: url("./public/image/Picture2.png");
+
+			/* Full height */
+			height: 100%;
+
+			/* Center and scale the image nicely */
+			/* background-color:#FF0000; */
+			background-attachment: fixed;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+	</style>
+</head>
+
+<body class="container bg">
+	<div style="margin-top: 100px">
+		<form name="form" action="http://localhost:3000/TC" method="POST">
+			<div class="col-md-12 container">
+				<div class="row">
+					<div class="col-md-6">
+						<h3 style="color: #9DA9B1;	font-weight: bold">
+							Welcome to
+						</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<h1 style="color: #F27228;	font-weight: bold">
+							GATEWAY CONVERSATION GUI
+						</h1>
+					</div>
+					<div class="col-md-12">
+						<img class=" margin-bottom-5" src="./public/image/normal_line_fpt_color.png"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="">
+							<i class="fa fa fa-user fa-2x"></i>
+							<label class="control-label">Username</label>
+							<div class="input-div">
+								<input class="form-control" type="text" placeholder="username" autofocus id="username" name="username"/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="">
+							<i class="fa fa fa-lock fa-2x"></i>
+							<label class="control-label">Password</label>
+							<div class="input-div">
+								<input class="form-control" id="password" placeholder="password" type="password"autocomplete="off" name="password"/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-8">
+						<input type="checkbox" id="rememberMe" name="rememberMe" value="true">
+						<label for="remember"><span></span> Ghi nhớ tài khoản</label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<button class="btn btn-primary " id="btnLogin"
+							style="border-style: none; background-color:#F27228;">Đăng nhập</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+
+</html>

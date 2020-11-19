@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>TCP/IP config</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./public/bootstrap/css/bootstrap.min.css">
+  <script src="./public/bootstrap/js/jquery.min.js"></script>
+  <script src="./public/bootstrap/js/bootstrap.min.js"></script>
+  <link href="./public/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+  <script src="./public/bootstrap-table/bootstrap-table.min.js"></script>
+  <link rel="shortcut icon" href="./favicon.ico">
+  <script src="./public/js/tcp_ip.js"></script>
+</head>
+
+<style>
+  .selected {
+    background-color: #428bca;
+    color: white;
+  }
+
+  #select {
+    display: none;
+  }
+
+  th {
+    background-color: #F27228;
+    text-align: center;
+    color: white;
+  }
+
+  #update_server {
+    margin-top: 10px;
+    display: none;
+  }
+
+  #update_client {
+    margin-top: 10px;
+    display: none;
+  }
+
+  .fis {
+    background-color: #F27228;
+    color: white;
+  }
+</style>
+
+<body>
+  <nav class="navbar-inverse" style="background-color:#F27228">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" style="color:white" href="./gw_home.html">GATEWAY CONVERSATION</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav ">
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" style="color:white" href="#">
+              Dashboard
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="./gw_monitor_transaction.html">Transaction</a></li>
+              <li><a href="./gw_monitor_connection.html">Connection</a></li>
+            </ul>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" style="color:white" href="#">
+              Communication
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="./gw_cmn_tcp_ip_config.html">TCP/IP</a></li>
+              <li><a href="./gw_cmn_web_sevice_config.html">WebService</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" style="color:white" href="#">
+              Interface
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="./gw_interface_iso_8583.html">Iso 8583</a></li>
+              <li><a href="./gw_interface_iso_20022.html">Iso 20022</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" style="color:white" href="#">
+              Core
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="./gw_core_mapping.html">Mapping</a></li>
+              <li><a href="./gw_core_routing.html">Routing</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" style="color:white" href="#">
+              User
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="./gw_user_man.html">User management</a></li>
+              <li><a href="./gw_user_acc.html">User access</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a style="color:white" href="./gw_user_profile.html"><span class="glyphicon glyphicon-user"></span>
+              User profile</a></li>
+          <li><a style="color:white" href="./gw_home_login.html"><span class="glyphicon glyphicon-log-out"></span>
+              Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="col-sm-12">
+      <h1>TCP/IP CONFIG</h1>
+    </div>
+    <div class="col-sm-6">
+      <div id="select">
+        <div class="col-sm-6">
+          <input type="radio" name="config" id="server"> Server
+        </div>
+        <div class="col-sm-6">
+          <input type="radio" name="config" id="client"> Client
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <table class="table table-hover table-bordered" id="server_cf">
+          <tr>
+            <th class="col-sm-3" id="check_server">TCP mode</th>
+            <th class="col-sm-3">Ip address</th>
+            <th class="col-sm-3">Port</th>
+            <th class="col-sm-3">Max connection</th>
+            <th class="col-sm-3">Edit</th>
+          </tr>
+          <tr>
+            <td class="col-sm-3" id="_server"><span>0</span></td>
+            <td class="col-sm-3" id="ip_addr_s">127.0.0.1</td>
+            <td class="col-sm-3" id="port_s">9001</td>
+            <td class="col-sm-3" id="conn_s">1</td>
+            <td>
+              <button class="btn fis edit"><span class="glyphicon glyphicon-edit"></span>
+                Edit</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-sm-12">
+        <table id="client_cf" class="table table-hover table-bordered">
+          <tr>
+            <th class="col-sm-3" id="check_client">Is client</th>
+            <th class="col-sm-3">Ip address</th>
+            <th class="col-sm-3">Port</th>
+            <th class="col-sm-3">Reconnect time</th>
+            <th class="col-sm-3">Edit</th>
+          </tr>
+          <tr>
+            <td class="col-sm-3" id="_client"></td>
+            <td class="col-sm-3" id="ip_addr_c"></td>
+            <td class="col-sm-3" id="port_c"></td>
+            <td class="col-sm-3" id="conn_c"></td>
+            <td>
+              <button class="btn fis edit" ><span class="glyphicon glyphicon-edit"></span>
+                Edit</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-sm-12" id="update_server">
+        <form action="" method="">
+          <label for="">Ip address</label>
+          <input type="text" name="" id="Ip_addr_s" class="form-control">
+          <label for="">Port</label>
+          <input type="text" name="" id="Port_s" class="form-control">
+          <label for="">Max_connection</label>
+          <input type="number" name="" id="max_conn" class="form-control">
+          </br>
+          <button id="set_server" class="btn fis" style="float: right;"><span class="glyphicon glyphicon-save"></span>
+            Save</button>
+        </form>
+      </div>
+      <div class="col-sm-12" id="update_client">
+        <form action="" method="">
+          <label for="">Ip address</label>
+          <input type="text" name="ip_addr" id="Ip_addr_c" class="form-control">
+          <label for="">Port</label>
+          <input type="text" name="port" id="Port_c" class="form-control">
+          <label for="">Reconnection_time</label>
+          <input type="number" name="reconnect_time" id="reconn_time" class="form-control">
+          </br>
+          <button id="set_client" class="btn fis" style="float: right;"><span class="glyphicon glyphicon-save"></span>
+            Save</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="well">
+        <label class="control-label">Header Size</label>
+        <input type="text" class="form-control" value="4">
+        <label class="control-label">Header Format</label>
+        <select id="data_format" class="form-control">
+          <option value=0>BCD</option>
+          <option value=1>RAW</option>
+          <option value=2 selected>ASCII</option>
+          <option value=3>EBCDIC</option>
+        </select>
+        <label class="control-label">Header Type</label>
+        <input type="text" class="form-control" value="1">
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
